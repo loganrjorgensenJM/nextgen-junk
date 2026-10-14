@@ -38,10 +38,10 @@ export default function Header() {
 
         <div className="headerActions">
           <a className="headerPhone" href="tel:+15306808652">
-            Logan: (530) 680-8652
+            Call/Text Call/Text Logan: (530) 680-8652
           </a>
           <a className="headerPhone" href="tel:+17753868276">
-            Michael: (775) 386-8276
+            Call/Text Call/Text Michael: (775) 386-8276
           </a>
           <a className="button buttonGradient buttonSmall" href="#quote">
             Free Quote
@@ -70,10 +70,10 @@ export default function Header() {
               </a>
             ))}
             <a href="tel:+15306808652" onClick={() => setOpen(false)}>
-              Call Logan — (530) 680-8652
+              Call or Text Logan — (530) 680-8652
             </a>
             <a href="tel:+17753868276" onClick={() => setOpen(false)}>
-              Call Michael — (775) 386-8276
+              Call or Text Michael — (775) 386-8276
             </a>
           </div>
         </nav>
