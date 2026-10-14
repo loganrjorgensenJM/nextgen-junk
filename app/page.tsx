@@ -199,12 +199,30 @@ export default function Home() {
                     <span>{tier.name}</span>
                   </div>
 
-                  <div className="trailerMeter" aria-hidden="true">
+                  <div className="trailerIllustration" aria-hidden="true">
+                    <div className="trailerBody">
+                      <span className="trailerRib trailerRibOne" />
+                      <span className="trailerRib trailerRibTwo" />
+                      <span className="trailerRib trailerRibThree" />
+                    </div>
+
                     <div
-                      className="trailerFill"
-                      style={{ width: tier.fill }}
-                    />
-                    <div className="trailerRail" />
+                      className="trailerLoad"
+                      style={{ width: `calc(${tier.fill} - 8px)` }}
+                    >
+                      <span className="junkPiece junkPieceOne" />
+                      <span className="junkPiece junkPieceTwo" />
+                      <span className="junkPiece junkPieceThree" />
+                      <span className="junkPiece junkPieceFour" />
+                      <span className="junkPiece junkPieceFive" />
+                      <span className="junkPiece junkPieceSix" />
+                    </div>
+
+                    <div className="trailerFrame" />
+                    <div className="trailerTongue" />
+                    <div className="trailerJack" />
+                    <span className="trailerFender trailerFenderOne" />
+                    <span className="trailerFender trailerFenderTwo" />
                     <span className="trailerWheel trailerWheelOne" />
                     <span className="trailerWheel trailerWheelTwo" />
                   </div>
