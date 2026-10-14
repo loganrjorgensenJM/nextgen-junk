@@ -14,6 +14,7 @@ export default function Footer() {
             height={210}
             className="footerLogo"
           />
+
           <p>
             Local junk removal, cleanouts, and hauling serving Reno, Sparks,
             and surrounding Northern Nevada communities.
@@ -22,16 +23,25 @@ export default function Footer() {
 
         <div>
           <h3>Contact</h3>
-          <a href="tel:+15306808652">Logan — (530) 680-8652</a>
-          <a href="tel:+17753868276">Michael — (775) 386-8276</a>
+
+          <a href="tel:+15306808652">
+            Logan — (530) 680-8652
+          </a>
+
+          <a href="tel:+17753868276">
+            Michael — (775) 386-8276
+          </a>
+
           <a href="mailto:nextgenjunkteam@gmail.com">
             nextgenjunkteam@gmail.com
           </a>
+
           <span>NextGenJunkCo.com</span>
         </div>
 
         <div>
           <h3>Service Area</h3>
+
           <span>Reno</span>
           <span>Sparks</span>
           <span>Spanish Springs</span>
@@ -41,6 +51,7 @@ export default function Footer() {
 
         <div>
           <h3>Services</h3>
+
           <a href="#services">Furniture Removal</a>
           <a href="#services">Cleanouts</a>
           <a href="#services">Debris Hauling</a>
@@ -49,7 +60,7 @@ export default function Footer() {
       </div>
 
       <div className="shell footerBottom">
-        <span>© {new Date().getFullYear()} NextGen Junk. All rights reserved.</span>
+        <span>© 2026 NextGen Junk. All rights reserved.</span>
         <span>Junk Removal • Cleanouts • Hauling</span>
       </div>
     </footer>
