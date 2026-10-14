@@ -30,6 +30,47 @@ const services = [
   },
 ];
 
+
+const pricingTiers = [
+  {
+    name: "Minimum Pickup",
+    price: "$125",
+    description: "A few small items or a very small pickup.",
+    fill: "12%",
+  },
+  {
+    name: "1/4 Trailer",
+    price: "$225",
+    description: "A small load of furniture, boxes, or household junk.",
+    fill: "25%",
+  },
+  {
+    name: "1/2 Trailer",
+    price: "$375",
+    description: "A medium-size cleanup or several bulky items.",
+    fill: "50%",
+  },
+  {
+    name: "3/4 Trailer",
+    price: "$525",
+    description: "A larger cleanout with furniture, boxes, and mixed junk.",
+    fill: "75%",
+  },
+  {
+    name: "Full Trailer",
+    price: "$675",
+    description: "A full trailer load of standard household or property junk.",
+    fill: "100%",
+  },
+  {
+    name: "Larger Loads",
+    price: "Custom Quote",
+    description: "Multiple loads, oversized cleanouts, or special projects.",
+    fill: "100%",
+    custom: true,
+  },
+];
+
 const areas = [
   "Reno",
   "Sparks",
@@ -69,7 +110,11 @@ export default function Home() {
                 </a>
 
                 <a className="button buttonOutline" href="tel:+15306808652">
-                  Call (530) 680-8652
+                  Call Logan
+                </a>
+
+                <a className="button buttonOutline" href="tel:+17753868276">
+                  Call Michael
                 </a>
               </div>
 
@@ -126,6 +171,100 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+
+        <section className="pricingSection" id="pricing">
+          <div className="pricingDiagonal pricingDiagonalOne" />
+          <div className="pricingDiagonal pricingDiagonalTwo" />
+
+          <div className="shell pricingContent">
+            <div className="pricingHeading">
+              <div>
+                <span className="sectionKicker">Simple, Upfront Pricing</span>
+                <h2>Pay for the space your junk takes up.</h2>
+              </div>
+              <p>
+                Standard pricing is based on how much trailer space your items
+                use. Send us photos for the fastest estimate before we arrive.
+              </p>
+            </div>
+
+            <div className="pricingGrid">
+              {pricingTiers.map((tier) => (
+                <article
+                  className={`pricingCard${tier.custom ? " pricingCardCustom" : ""}`}
+                  key={tier.name}
+                >
+                  <div className="pricingCardTop">
+                    <span>{tier.name}</span>
+                  </div>
+
+                  <div className="trailerMeter" aria-hidden="true">
+                    <div
+                      className="trailerFill"
+                      style={{ width: tier.fill }}
+                    />
+                    <div className="trailerRail" />
+                    <span className="trailerWheel trailerWheelOne" />
+                    <span className="trailerWheel trailerWheelTwo" />
+                  </div>
+
+                  <div className="pricingAmount">{tier.price}</div>
+                  <p>{tier.description}</p>
+
+                  <a href="#quote">
+                    Get a Free Quote <span aria-hidden="true">→</span>
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <div className="pricingIncluded">
+              <div className="includedTitle">
+                <span>Included in Standard Pricing</span>
+              </div>
+
+              <div className="includedGrid">
+                <div>
+                  <span className="includedIcon" aria-hidden="true">↥</span>
+                  <strong>Loading</strong>
+                </div>
+                <div>
+                  <span className="includedIcon" aria-hidden="true">▰</span>
+                  <strong>Hauling</strong>
+                </div>
+                <div>
+                  <span className="includedIcon" aria-hidden="true">●●</span>
+                  <strong>Labor</strong>
+                </div>
+                <div>
+                  <span className="includedIcon" aria-hidden="true">⌫</span>
+                  <strong>Standard Disposal</strong>
+                </div>
+              </div>
+
+              <div className="pricingNotice">
+                <strong>Special items may cost extra:</strong>
+                <span>
+                  mattresses, tires, refrigerators/freezers, TVs/e-waste, and
+                  heavy materials such as concrete, dirt, or roofing debris.
+                </span>
+              </div>
+            </div>
+
+            <div className="pricingCta">
+              <div>
+                <span>Not sure how much space you have?</span>
+                <strong>Text us photos and we&apos;ll help estimate the load.</strong>
+              </div>
+              <div className="pricingCtaButtons">
+                <a href="sms:+15306808652">Text Logan</a>
+                <a href="sms:+17753868276">Text Michael</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         <section className="section servicesSection" id="services">
           <div className="shell">
@@ -319,7 +458,7 @@ export default function Home() {
                   <span>+</span>
                 </summary>
                 <p>
-                  Yes. Text photos and a short description to (530) 680-8652.
+                  Yes. Text Logan at (530) 680-8652 or Michael at (775) 386-8276 with photos and a short description.
                 </p>
               </details>
 
@@ -351,18 +490,18 @@ export default function Home() {
 
               <div className="contactCards">
                 <a href="tel:+15306808652">
-                  <span>Call</span>
+                  <span>Logan — Call or Text</span>
                   <strong>(530) 680-8652</strong>
                 </a>
 
-                <a href="sms:+15306808652">
-                  <span>Text</span>
-                  <strong>Send Job Photos</strong>
+                <a href="tel:+17753868276">
+                  <span>Michael — Call or Text</span>
+                  <strong>(775) 386-8276</strong>
                 </a>
 
-                <a href="mailto:Nexgenjunkteam@gmail.com">
+                <a href="mailto:nextgenjunkteam@gmail.com">
                   <span>Email</span>
-                  <strong>Nexgenjunkteam@gmail.com</strong>
+                  <strong>nextgenjunkteam@gmail.com</strong>
                 </a>
               </div>
             </div>
@@ -377,8 +516,8 @@ export default function Home() {
       <Footer />
 
       <div className="mobileSticky">
-        <a href="tel:+15306808652">Call</a>
-        <a href="sms:+15306808652">Text</a>
+        <a href="tel:+15306808652">Logan</a>
+        <a href="tel:+17753868276">Michael</a>
         <a href="#quote">Free Quote</a>
       </div>
     </div>

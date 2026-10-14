@@ -53,7 +53,7 @@ export default function QuoteForm() {
 
     setSent(true);
     window.location.href =
-      `mailto:Nexgenjunkteam@gmail.com?subject=${subject}&body=${body}`;
+      `mailto:nextgenjunkteam@gmail.com?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -139,8 +139,10 @@ export default function QuoteForm() {
       </button>
 
       <p className="formNote">
-        Want a faster estimate?{" "}
-        <a href="sms:+15306808652">Text photos to (530) 680-8652</a>.
+        Want a faster estimate? Text photos to{" "}
+        <a href="sms:+15306808652">Logan at (530) 680-8652</a>
+        {" or "}
+        <a href="sms:+17753868276">Michael at (775) 386-8276</a>.
       </p>
 
       {sent && (

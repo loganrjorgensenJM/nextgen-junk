@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const navItems = [
   { label: "Services", href: "#services" },
+  { label: "Pricing", href: "#pricing" },
   { label: "How It Works", href: "#how-it-works" },
   { label: "Service Areas", href: "#service-areas" },
   { label: "FAQ", href: "#faq" },
@@ -37,7 +38,10 @@ export default function Header() {
 
         <div className="headerActions">
           <a className="headerPhone" href="tel:+15306808652">
-            (530) 680-8652
+            Logan: (530) 680-8652
+          </a>
+          <a className="headerPhone" href="tel:+17753868276">
+            Michael: (775) 386-8276
           </a>
           <a className="button buttonGradient buttonSmall" href="#quote">
             Free Quote
@@ -66,7 +70,10 @@ export default function Header() {
               </a>
             ))}
             <a href="tel:+15306808652" onClick={() => setOpen(false)}>
-              Call (530) 680-8652
+              Call Logan — (530) 680-8652
+            </a>
+            <a href="tel:+17753868276" onClick={() => setOpen(false)}>
+              Call Michael — (775) 386-8276
             </a>
           </div>
         </nav>
