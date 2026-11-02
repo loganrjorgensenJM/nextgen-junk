@@ -1,23 +1,27 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navItems = [
-  { label: "Services", href: "#services" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Service Areas", href: "#service-areas" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   return (
     <header className="siteHeader">
       <div className="shell headerInner">
-        <a href="#top" className="logoLink" aria-label="NextGen Junk home">
+        <Link href="/" className="logoLink" aria-label="NextGen Junk home">
           <Image
             src="/images/NextGen%20Junk%20Co.%20Mountain%20Logo.png"
             alt="NextGen Junk"
@@ -26,32 +30,33 @@ export default function Header() {
             className="headerLogo"
             priority
           />
-        </a>
+        </Link>
 
         <nav className="desktopNav" aria-label="Primary navigation">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const active =
+              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={active ? "navActive" : undefined}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="headerActions">
-          <a className="headerPhone" href="tel:+15306808652">
-            Call/Text Call/Text Logan: (530) 680-8652
-          </a>
-          <a className="headerPhone" href="tel:+17753868276">
-            Call/Text Call/Text Michael: (775) 386-8276
-          </a>
-          <a className="button buttonGradient buttonSmall" href="#quote">
-            Free Quote
-          </a>
-        </div>
+        <Link className="button buttonGradient buttonSmall headerQuote" href="/contact">
+          Free Quote
+        </Link>
 
         <button
           className="menuButton"
           type="button"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation"
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
@@ -65,16 +70,19 @@ export default function Header() {
         <nav className="mobileNav" aria-label="Mobile navigation">
           <div className="shell mobileNavInner">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+              >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <a href="tel:+15306808652" onClick={() => setOpen(false)}>
-              Call or Text Logan — (530) 680-8652
-            </a>
-            <a href="tel:+17753868276" onClick={() => setOpen(false)}>
-              Call or Text Michael — (775) 386-8276
-            </a>
+
+            <div className="mobileNavContacts">
+              <a href="tel:+15306808652">Logan — (530) 680-8652</a>
+              <a href="tel:+17753868276">Michael — (775) 386-8276</a>
+            </div>
           </div>
         </nav>
       )}

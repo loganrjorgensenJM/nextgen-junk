@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61594986256543";
 const INSTAGRAM_URL = "https://www.instagram.com/nextgenjunkteam";
@@ -7,8 +8,6 @@ const GOOGLE_REVIEW_URL = "https://g.page/r/CccvnsInN1vmEAE/review";
 export default function Footer() {
   return (
     <footer className="siteFooter">
-      <div className="footerSlash footerSlashTop" />
-
       <div className="shell footerGrid">
         <div className="footerBrand">
           <Image
@@ -24,10 +23,25 @@ export default function Footer() {
           </p>
 
           <div className="footerSocialLinks">
-            <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook</a>
-            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
-            <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noreferrer">Google Reviews</a>
+            <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">
+              Facebook
+            </a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
+              Instagram
+            </a>
+            <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noreferrer">
+              Google Reviews
+            </a>
           </div>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+          <Link href="/services">Services</Link>
+          <Link href="/pricing">Pricing</Link>
+          <Link href="/reviews">Reviews</Link>
+          <Link href="/about">About</Link>
+          <Link href="/contact">Contact</Link>
         </div>
 
         <div>
@@ -47,14 +61,7 @@ export default function Footer() {
           <span>Spanish Springs</span>
           <span>Sun Valley</span>
           <span>Verdi</span>
-        </div>
-
-        <div>
-          <h3>Services</h3>
-          <a href="#services">Furniture Removal</a>
-          <a href="#services">Cleanouts</a>
-          <a href="#services">Debris Hauling</a>
-          <a href="#services">Commercial Cleanup</a>
+          <span>Surrounding Areas</span>
         </div>
       </div>
 

@@ -1,411 +1,183 @@
 import Image from "next/image";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import QuoteForm from "@/components/QuoteForm";
-import PricingSection from "@/components/PricingSection";
-import SocialReviews from "@/components/SocialReviews";
+import Link from "next/link";
+import CTASection from "@/components/CTASection";
 
-const services = [
+const serviceHighlights = [
   {
-    title: "Furniture Removal",
-    text: "Couches, sectionals, dressers, tables, mattresses, box springs, and other bulky furniture.",
-  },
-  {
-    title: "Appliance Removal",
-    text: "Refrigerators, washers, dryers, and other large household appliances.",
+    title: "Furniture & Bulky Items",
+    text: "Couches, sectionals, mattresses, dressers, tables, and other large household items.",
   },
   {
     title: "Property Cleanouts",
-    text: "Garages, spare rooms, storage units, rentals, move-outs, and estate cleanouts.",
+    text: "Garages, rentals, storage units, move-outs, estates, and recurring property cleanup.",
   },
   {
-    title: "Yard Debris",
-    text: "Branches, landscaping waste, outdoor clutter, and general yard cleanup material.",
+    title: "Debris & Commercial",
+    text: "Yard debris, remodel waste, office furniture, and cleanup support for local businesses.",
   },
-  {
-    title: "Construction Debris",
-    text: "Remodel and construction debris hauling for homeowners, contractors, and property managers.",
-  },
-  {
-    title: "Commercial Cleanouts",
-    text: "Office furniture, recurring property cleanup, and hauling for local businesses.",
-  },
-];
-
-
-const areas = [
-  "Reno",
-  "Sparks",
-  "Spanish Springs",
-  "Sun Valley",
-  "Verdi",
-  "Surrounding Areas",
 ];
 
 export default function Home() {
   return (
-    <div id="top">
-      <Header />
-
+    <>
       <main>
-        <section className="hero">
-          <div className="heroAccent heroAccentTop" />
-          <div className="heroAccent heroAccentBottom" />
+        <section className="homeHero">
+          <div className="homeHeroAccent" />
 
-          <div className="shell heroGrid">
-            <div className="heroCopy">
-              <div className="heroEyebrow">Reno • Sparks • Northern Nevada</div>
-
+          <div className="shell homeHeroGrid">
+            <div className="homeHeroCopy">
+              <span className="sectionKicker">Reno • Sparks • Northern Nevada</span>
               <h1>
                 Junk Removal
                 <span>Made Simple.</span>
               </h1>
-
               <p>
                 Fast, local junk removal for homes, rentals, businesses, and
                 properties throughout the Reno-Sparks area.
               </p>
 
-              <div className="heroButtons">
-                <a className="button buttonGradient" href="#quote">
-                  Get a Free Quote <span>→</span>
-                </a>
+              <div className="heroActions">
+                <Link className="button buttonGradient" href="/contact">
+                  Get a Free Quote <span aria-hidden="true">→</span>
+                </Link>
+                <Link className="button buttonOutline" href="/services">
+                  View Services
+                </Link>
               </div>
 
-              <div className="heroContactCards">
-                <a className="heroContactCard" href="tel:+15306808652">
+              <div className="homeContactRow">
+                <a href="tel:+15306808652">
                   <span>Call or Text</span>
                   <strong>Logan — (530) 680-8652</strong>
                 </a>
 
-                <a className="heroContactCard" href="tel:+17753868276">
+                <a href="tel:+17753868276">
                   <span>Call or Text</span>
                   <strong>Michael — (775) 386-8276</strong>
                 </a>
               </div>
+            </div>
 
-              <div className="heroTrust">
+            <div className="homeHeroVisual">
+              <div className="logoFrame">
+                <Image
+                  src="/images/NextGen%20Junk%20Co.%20Mountain%20Logo.png"
+                  alt="NextGen Junk"
+                  width={900}
+                  height={650}
+                  className="homeHeroLogo"
+                  priority
+                />
+              </div>
+
+              <div className="heroTrustRow">
                 <span>Local Service</span>
                 <span>Straightforward Quotes</span>
                 <span>Residential & Commercial</span>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="heroLogoPanel">
-              <div className="heroLogoGlow" />
-              <Image
-                src="/images/NextGen%20Junk%20Co.%20Mountain%20Logo.png"
-                alt="NextGen Junk mountain logo"
-                width={900}
-                height={650}
-                className="heroLogo"
-                priority
-              />
-              <div className="heroTagline">
-                <span>Junk Removal</span>
-                <i />
-                <span>Cleanouts</span>
-                <i />
-                <span>Hauling</span>
+        <section className="section sectionLight">
+          <div className="shell">
+            <div className="sectionHeading splitHeading">
+              <div>
+                <span className="sectionKicker">What We Do</span>
+                <h2>Cleanup without the hassle.</h2>
+              </div>
+
+              <div>
+                <p>
+                  Whether it is one bulky item or a larger property cleanup,
+                  NextGen Junk keeps the process simple from the first message to
+                  the final haul-away.
+                </p>
+                <Link className="textLink" href="/services">
+                  See all services <span aria-hidden="true">→</span>
+                </Link>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section className="brandStrip">
-          <div className="brandStripOrange" />
-          <div className="brandStripBlack" />
-        </section>
-
-        <section className="quickBar">
-          <div className="shell quickBarGrid">
-            <div>
-              <strong>Furniture</strong>
-              <span>Couches, mattresses & more</span>
-            </div>
-            <div>
-              <strong>Cleanouts</strong>
-              <span>Garages, rentals & estates</span>
-            </div>
-            <div>
-              <strong>Debris</strong>
-              <span>Yard, remodel & construction</span>
-            </div>
-            <div>
-              <strong>Commercial</strong>
-              <span>Offices & property cleanup</span>
-            </div>
-          </div>
-        </section>
-
-
-        <PricingSection />
-
-        <section className="section servicesSection" id="services">
-          <div className="shell">
-            <div className="sectionHeading">
-              <span className="sectionKicker">What We Haul</span>
-              <h2>Get the junk off your property and off your list.</h2>
-              <p>
-                From one bulky item to larger cleanouts, we make removal simple.
-              </p>
-            </div>
-
-            <div className="serviceGrid">
-              {services.map((service, index) => (
-                <article className="serviceCard" key={service.title}>
-                  <span className="serviceNumber">
+            <div className="homeServiceGrid">
+              {serviceHighlights.map((service, index) => (
+                <article className="homeServiceCard" key={service.title}>
+                  <span className="cardNumber">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <div className="serviceSlash" />
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                  <a href="#quote">
-                    Get a quote <span>→</span>
-                  </a>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="processSection" id="how-it-works">
-          <div className="processTopSlash" />
-
-          <div className="shell processContent">
-            <div className="sectionHeading sectionHeadingLight">
+        <section className="processBand">
+          <div className="shell">
+            <div className="sectionHeading sectionHeadingLight centeredHeading">
               <span className="sectionKicker">How It Works</span>
               <h2>Three steps. Then it&apos;s gone.</h2>
             </div>
 
             <div className="processGrid">
               <article>
-                <div className="processNumber">01</div>
+                <span>01</span>
                 <h3>Show Us the Junk</h3>
-                <p>
-                  Send photos or fill out the quote form with a quick
-                  description of what needs to go.
-                </p>
+                <p>Text photos or send a quote request with a quick description.</p>
               </article>
 
               <article>
-                <div className="processNumber">02</div>
+                <span>02</span>
                 <h3>Get Your Quote</h3>
-                <p>
-                  We review the job and give you straightforward pricing based
-                  on the load and work involved.
-                </p>
+                <p>We give you straightforward pricing based on the job and load.</p>
               </article>
 
               <article>
-                <div className="processNumber">03</div>
+                <span>03</span>
                 <h3>We Haul It Away</h3>
-                <p>
-                  Pick a time that works, show us what goes, and we handle the
-                  removal.
-                </p>
+                <p>Choose a time that works and we handle the loading and removal.</p>
               </article>
             </div>
           </div>
         </section>
 
-        <section className="section whySection">
-          <div className="shell whyGrid">
-            <div className="whyVisual">
-              <div className="whyVisualOrange" />
-              <div className="whyVisualBlack" />
+        <section className="section sectionWhite">
+          <div className="shell homeFeatureSplit">
+            <div className="homeFeatureVisual">
               <Image
                 src="/images/NextGen%20Junk%20Co.%20Mountain%20Logo.png"
                 alt="NextGen Junk"
                 width={800}
                 height={600}
-                className="whyLogo"
+                className="featureLogo"
               />
             </div>
 
-            <div className="whyCopy">
+            <div className="homeFeatureCopy">
               <span className="sectionKicker">Why NextGen Junk</span>
               <h2>Local service without the runaround.</h2>
               <p>
-                NextGen Junk is built around straightforward communication,
-                flexible scheduling, and a simple process from the first call to
-                the final haul-away.
+                We focus on responsive communication, clear expectations, and a
+                simple process that works for homeowners, landlords, property
+                managers, and businesses.
               </p>
 
-              <div className="checkList">
-                <div>
-                  <span>✓</span>
-                  <p>
-                    <strong>Simple communication</strong>
-                    Call, text, or send a quote request online.
-                  </p>
-                </div>
-
-                <div>
-                  <span>✓</span>
-                  <p>
-                    <strong>Flexible job sizes</strong>
-                    Single items, full cleanouts, debris, and recurring work.
-                  </p>
-                </div>
-
-                <div>
-                  <span>✓</span>
-                  <p>
-                    <strong>Local focus</strong>
-                    Serving homeowners, renters, property managers, and
-                    businesses around Reno and Sparks.
-                  </p>
-                </div>
+              <div className="featureList">
+                <div><span>✓</span><strong>Call, text, or request a quote online</strong></div>
+                <div><span>✓</span><strong>Residential and commercial cleanup</strong></div>
+                <div><span>✓</span><strong>Serving Reno, Sparks, and nearby areas</strong></div>
               </div>
 
-              <a className="textLink" href="#quote">
-                Tell us about your job <span>→</span>
-              </a>
+              <Link className="textLink" href="/about">
+                Learn more about NextGen Junk <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
         </section>
 
-        <section className="areaSection" id="service-areas">
-          <div className="areaOrangeSlash" />
-
-          <div className="shell areaGrid">
-            <div>
-              <span className="sectionKicker">Service Area</span>
-              <h2>Serving Reno, Sparks & nearby communities.</h2>
-              <p>
-                Have a job just outside the normal area? Reach out and we can
-                let you know whether we can make it work.
-              </p>
-              <a className="button buttonWhite" href="#quote">
-                Check Your Area <span>→</span>
-              </a>
-            </div>
-
-            <div className="areaList">
-              {areas.map((area) => (
-                <div key={area}>
-                  <span className="pin">●</span>
-                  <strong>{area}</strong>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="section faqSection" id="faq">
-          <div className="shell faqGrid">
-            <div className="faqIntro">
-              <span className="sectionKicker">Common Questions</span>
-              <h2>What to know before we haul it.</h2>
-              <p>
-                Still have a question? Call or text and we can walk through the
-                job with you.
-              </p>
-            </div>
-
-            <div className="faqList">
-              <details>
-                <summary>
-                  How does pricing work?
-                  <span>+</span>
-                </summary>
-                <p>
-                  Pricing depends on load size, material type, disposal costs,
-                  labor, and access. Photos help us give you the best estimate.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Do you handle small jobs?
-                  <span>+</span>
-                </summary>
-                <p>
-                  Yes. We can help with single bulky items, curbside pickups,
-                  dump runs, and larger cleanouts.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  Can I text photos?
-                  <span>+</span>
-                </summary>
-                <p>
-                  Yes. Text Logan at (530) 680-8652 or Michael at (775) 386-8276 with photos and a short description.
-                </p>
-              </details>
-
-              <details>
-                <summary>
-                  What areas do you serve?
-                  <span>+</span>
-                </summary>
-                <p>
-                  Reno, Sparks, Spanish Springs, Sun Valley, Verdi, and nearby
-                  Northern Nevada communities.
-                </p>
-              </details>
-            </div>
-          </div>
-        </section>
-
-        <SocialReviews />
-
-        <section className="quoteSection" id="quote">
-          <div className="quoteSlash" />
-
-          <div className="shell quoteGrid">
-            <div className="quoteIntro">
-              <span className="sectionKicker">Free Quote</span>
-              <h2>Ready to clear the junk?</h2>
-              <p>
-                Give us the basics and we&apos;ll have what we need to start
-                putting together your quote.
-              </p>
-
-              <div className="contactCards">
-                <a href="tel:+15306808652">
-                  <span>Logan — Call or Text</span>
-                  <strong>(530) 680-8652</strong>
-                </a>
-
-                <a href="tel:+17753868276">
-                  <span>Michael — Call or Text</span>
-                  <strong>(775) 386-8276</strong>
-                </a>
-
-                <a href="mailto:nextgenjunkteam@gmail.com">
-                  <span>Email</span>
-                  <strong>nextgenjunkteam@gmail.com</strong>
-                </a>
-              </div>
-            </div>
-
-            <div className="quoteCard">
-              <QuoteForm />
-            </div>
-          </div>
-        </section>
+        <CTASection />
       </main>
-
-      <Footer />
-
-      <div className="mobileSticky">
-        <a href="tel:+15306808652">
-          <span>Logan</span>
-          <strong>530-680-8652</strong>
-        </a>
-        <a href="tel:+17753868276">
-          <span>Michael</span>
-          <strong>775-386-8276</strong>
-        </a>
-        <a href="#quote">
-          <span>Free</span>
-          <strong>Quote</strong>
-        </a>
-      </div>
-    </div>
+    </>
   );
 }

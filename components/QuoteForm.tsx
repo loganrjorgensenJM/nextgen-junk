@@ -2,48 +2,36 @@
 
 import { FormEvent, useState } from "react";
 
-type QuoteState = {
-  name: string;
-  phone: string;
-  email: string;
-  location: string;
-  service: string;
-  details: string;
-};
-
-const initialState: QuoteState = {
-  name: "",
-  phone: "",
-  email: "",
-  location: "",
-  service: "General junk removal",
-  details: "",
-};
+const BUSINESS_EMAIL = "nextgenjunkteam@gmail.com";
 
 export default function QuoteForm() {
-  const [form, setForm] = useState(initialState);
   const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    location: "",
+    service: "General junk removal",
+    details: "",
+  });
 
-  function update(field: keyof QuoteState, value: string) {
+  function update(field: keyof typeof form, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
-    if (sent) setSent(false);
   }
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const subject = encodeURIComponent(
-      `NextGen Junk website quote - ${form.name || "New customer"}`
+      `NextGen Junk Quote Request - ${form.name || "Website Lead"}`
     );
 
     const body = encodeURIComponent(
       [
-        "New quote request from NextGenJunkCo.com",
-        "",
         `Name: ${form.name}`,
         `Phone: ${form.phone}`,
-        `Email: ${form.email || "Not provided"}`,
-        `Location: ${form.location}`,
+        `Email: ${form.email}`,
+        `City / ZIP: ${form.location}`,
         `Service: ${form.service}`,
         "",
         "Job details:",
@@ -51,9 +39,8 @@ export default function QuoteForm() {
       ].join("\n")
     );
 
+    window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
     setSent(true);
-    window.location.href =
-      `mailto:nextgenjunkteam@gmail.com?subject=${subject}&body=${body}`;
   }
 
   return (
@@ -126,10 +113,10 @@ export default function QuoteForm() {
           <span>What needs to go? *</span>
           <textarea
             required
-            rows={5}
+            rows={6}
             value={form.details}
             onChange={(event) => update("details", event.target.value)}
-            placeholder="Tell us what you need removed, how much there is, and anything we should know about access."
+            placeholder="Tell us what you need removed, roughly how much there is, and anything we should know about access."
           />
         </label>
       </div>
@@ -139,17 +126,17 @@ export default function QuoteForm() {
       </button>
 
       <p className="formNote">
-        Want a faster estimate? Text photos to{" "}
+        For a faster estimate, text photos to{" "}
         <a href="sms:+15306808652">Logan at (530) 680-8652</a>
         {" or "}
         <a href="sms:+17753868276">Michael at (775) 386-8276</a>.
       </p>
 
-      {sent && (
+      {sent ? (
         <p className="formStatus">
-          Your email app should open with your quote request filled in.
+          Your email app should open with your request filled in.
         </p>
-      )}
+      ) : null}
     </form>
   );
 }
