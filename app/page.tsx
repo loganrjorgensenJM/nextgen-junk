@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import QuoteForm from "@/components/QuoteForm";
 import PricingSection from "@/components/PricingSection";
+import SocialReviews from "@/components/SocialReviews";
 
 const services = [
   {
@@ -349,6 +350,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <SocialReviews />
 
         <section className="quoteSection" id="quote">
           <div className="quoteSlash" />

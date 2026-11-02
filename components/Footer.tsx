@@ -1,5 +1,9 @@
 import Image from "next/image";
 
+const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61594986256543";
+const INSTAGRAM_URL = "https://www.instagram.com/nextgenjunkteam";
+const GOOGLE_REVIEW_URL = "https://g.page/r/CccvnsInN1vmEAE/review";
+
 export default function Footer() {
   return (
     <footer className="siteFooter">
@@ -18,6 +22,12 @@ export default function Footer() {
             Local junk removal, cleanouts, and hauling serving Reno, Sparks,
             and surrounding Northern Nevada communities.
           </p>
+
+          <div className="footerSocialLinks">
+            <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">Facebook</a>
+            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
+            <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noreferrer">Google Reviews</a>
+          </div>
         </div>
 
         <div>

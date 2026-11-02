@@ -1434,3 +1434,520 @@ section[id] {
   }
 }
 
+
+
+/* =========================================================
+   SOCIAL MEDIA + GOOGLE REVIEWS
+   ========================================================= */
+
+.socialReviewsSection {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.socialReviewsGrid {
+  display: grid;
+  grid-template-columns: 1.03fr 0.97fr;
+  gap: 54px;
+  align-items: stretch;
+}
+
+.socialReviewsIntro h2 {
+  margin: 12px 0 18px;
+  max-width: 680px;
+  font-size: clamp(2.55rem, 5vw, 4.5rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.socialReviewsIntro > p {
+  max-width: 650px;
+  margin: 0;
+  color: #555555;
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+.socialButtons {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.socialButton {
+  min-height: 98px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 2px solid #151515;
+  background: #ffffff;
+  box-shadow: 6px 6px 0 #151515;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.socialButton:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 9px 9px 0 #151515;
+}
+
+.socialIcon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: #ffffff;
+}
+
+.socialIcon svg {
+  width: 29px;
+  height: 29px;
+}
+
+.socialButtonFacebook .socialIcon {
+  background: #1877f2;
+}
+
+.socialButtonInstagram .socialIcon {
+  background: radial-gradient(circle at 30% 100%, #ffd600 0 18%, #ff7a00 28%, #ff0169 55%, #d300c5 78%, #7638fa 100%);
+}
+
+.socialButton small,
+.socialButton strong {
+  display: block;
+}
+
+.socialButton small {
+  margin-bottom: 3px;
+  color: #777777;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.socialButton strong {
+  color: #111111;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+}
+
+.googleReviewCard {
+  position: relative;
+  overflow: hidden;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #151515;
+  background: linear-gradient(135deg, #080808 0%, #151515 100%);
+  color: #ffffff;
+  box-shadow: 12px 12px 0 var(--orange);
+}
+
+.googleReviewCard::before {
+  content: "";
+  position: absolute;
+  top: -55px;
+  right: -80px;
+  width: 240px;
+  height: 70px;
+  transform: rotate(-24deg);
+  background: var(--brand-gradient);
+}
+
+.googleReviewTop {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.googleIcon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #111111;
+}
+
+.googleIcon svg {
+  width: 31px;
+  height: 31px;
+}
+
+.googleReviewLabel {
+  display: block;
+  color: #cfcfcf;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.reviewStars {
+  margin-top: 3px;
+  display: flex;
+  gap: 2px;
+  color: #ffb400;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.googleReviewCard h3 {
+  position: relative;
+  z-index: 1;
+  margin: 34px 0 12px;
+  max-width: 520px;
+  font-size: clamp(1.8rem, 3vw, 2.65rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.googleReviewCard > p {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 26px;
+  color: #c4c4c4;
+  line-height: 1.7;
+}
+
+.googleReviewButton {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-top: auto;
+}
+
+.footerSocialLinks {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.footerSocialLinks a {
+  color: #b9b9b9 !important;
+  font-size: 0.76rem !important;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.footerSocialLinks a:hover {
+  color: var(--orange) !important;
+}
+
+@media (max-width: 860px) {
+  .socialReviewsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .googleReviewCard {
+    min-height: 390px;
+  }
+}
+
+@media (max-width: 620px) {
+  .socialReviewsSection {
+    padding: 74px 0;
+  }
+
+  .socialReviewsIntro h2 {
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
+  }
+
+  .socialButtons {
+    grid-template-columns: 1fr;
+  }
+
+  .socialButton {
+    min-height: 84px;
+  }
+
+  .googleReviewCard {
+    min-height: 0;
+    padding: 26px 22px;
+    box-shadow: 7px 7px 0 var(--orange);
+  }
+
+  .googleReviewCard h3 {
+    margin-top: 28px;
+  }
+
+  .googleReviewButton {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   LIVE GOOGLE REVIEWS
+   ========================================================= */
+
+.socialGooglePrompt {
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  border: 2px solid #151515;
+  background: linear-gradient(135deg, #080808 0%, #151515 100%);
+  color: #ffffff;
+  box-shadow: 10px 10px 0 var(--orange);
+}
+
+.socialGooglePromptLabel {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: #ffb84e;
+  font-size: 0.74rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.socialGooglePrompt h3 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.socialGooglePrompt p {
+  margin: 0;
+  color: #c7c7c7;
+  line-height: 1.7;
+}
+
+.liveReviewsSection {
+  margin-top: 74px;
+  padding-top: 62px;
+  border-top: 1px solid #e0e0dc;
+}
+
+.liveReviewsHeader {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.liveReviewsHeader h2 {
+  margin: 12px 0 0;
+  font-size: clamp(2.35rem, 4.7vw, 4.25rem);
+  line-height: 0.96;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.overallRatingCard {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 2px solid #151515;
+  background: #ffffff;
+  box-shadow: 5px 5px 0 #151515;
+}
+
+.overallRatingCard > strong {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.overallRatingCard > div {
+  display: grid;
+  gap: 4px;
+}
+
+.overallRatingCard > div > span:last-child {
+  color: #666666;
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.liveReviewStars {
+  display: inline-flex;
+  gap: 2px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.starFilled {
+  color: #ffb400;
+}
+
+.starEmpty {
+  color: #d7d7d2;
+}
+
+.liveReviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.liveReviewCard {
+  min-height: 300px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #deded9;
+  background: #fafaf8;
+}
+
+.liveReviewAuthor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.liveReviewAvatar {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #e3e3de;
+}
+
+.liveReviewAvatarFallback {
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: #151515;
+  font-weight: 950;
+}
+
+.liveReviewAuthorName {
+  color: #111111;
+  font-size: 0.9rem;
+  font-weight: 950;
+}
+
+.liveReviewAuthorName:hover {
+  color: var(--orange);
+}
+
+.liveReviewMeta {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.liveReviewMeta > span:last-child {
+  color: #777777;
+  font-size: 0.72rem;
+}
+
+.liveReviewText {
+  margin: 22px 0;
+  color: #3e3e3e;
+  font-size: 0.95rem;
+  line-height: 1.72;
+}
+
+.reviewSourceLink {
+  margin-top: auto;
+  color: #555555;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.reviewSourceLink:hover {
+  color: var(--orange);
+}
+
+.liveReviewsActions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttonOutlineDark {
+  border: 2px solid #151515;
+  background: #ffffff;
+  color: #151515;
+}
+
+.reviewsLoading {
+  color: #777777;
+  font-weight: 800;
+}
+
+.reviewsFallback {
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border: 2px solid #151515;
+  background: #f6f6f3;
+}
+
+.reviewsFallback h3 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.reviewsFallback p {
+  margin: 0;
+  color: #666666;
+  line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+  .liveReviewsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .liveReviewsSection {
+    margin-top: 56px;
+    padding-top: 48px;
+  }
+
+  .liveReviewsHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .overallRatingCard {
+    width: 100%;
+  }
+
+  .liveReviewsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .liveReviewCard {
+    min-height: 0;
+  }
+
+  .reviewsFallback {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .reviewsFallback .button {
+    width: 100%;
+  }
+}
